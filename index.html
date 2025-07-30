@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header class="header">
+    <nav class="navbar container">
+        <h1 class="logo">Mateus</h1>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button id="toggle-theme" class="theme-btn" aria-label="Alternar tema">☀️ </button>
+    </nav>
+</header>
+<main>
+    <section id="inicio" class="hero container section">
+        <div class="hero-content">
+            <h2 class="animate__animated animate__fadeInDown">Olá! Eu sou o Mateus</h2>
+            <p class="animate__animated animate__fadeInDown animate__delay-1s">Dev Fullstack & Visual Designer</p>
+            <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-1s">
+                <a href="projetos.html" class="btn">Ver Projetos</a>
+                <a href="contato.html" class="btn btn-outline">Contate-me</a>
+            </div>
+            <div class="additional-buttons">
+                <a href="https://www.instagram.com/teux_007" class="btn">
+                    <i class="fab fa-instagram" style="color: black;"></i>
+                </a>
+                <a href="https://github.com/Teux007" class="btn btn-outline">
+                    <i class="fab fa-github" style="color: black;"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/img/Cristiano Ronaldo Portugal 2024 (4).jpg" alt="Retrato"
+                class="animate__animated animate__fadeIn animate__delay-1s">
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre container section">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="sobre-content">
+            <p>Meu nome é Mateus e eu sou apaixonado por tecnologia, gosto de explorar a lógica da programação e estou sempre buscando aprender mais. Tenho interesse em criar soluções criativas e funcionais, com foco em crescer na área de TI.
+            </p>
+            <a href="assets/pdf/Liz-Cv.pdf" class="btn-download" download>Baixar Curriculo</a>
+        </div>
+        <img src="assets/img/cr7.jpg" alt="Ambiente de trabalho moderno com computador e acessórios"
+            class="animate__animated animate__fadeIn">
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Minhas Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Tecnologias Frontend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>CSS</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Fluxograma</span>
+                            <span>20%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tecnologias Back-end</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Java</span>
+                            <span>20%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Express</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>SQL</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Ferramentas & Outras</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Git</span>
+                            <span>20%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Figma</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>UI/UX</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Scrum</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Termos de Serviço</a></li>
+                <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                <li><a href="#" class="footer-link">Contato</a></li>
+            </ul>
+            <p class="footer-text">&copy; 2023 Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
+<script src="assets/js/index.js"></script>
+<script src="assets/js/hamburguer.js"></script>
+</body>
+</html>

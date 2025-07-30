@@ -1,0 +1,511 @@
+/* Reset e Variáveis */
+:root {
+    --primary: #2563eb; /* Azul */
+    --primary-dark: #1d4ed8; /* Azul Escuro */
+    --bg: #f8fafc; /* Fundo Claro */
+    --text: #1e293b; /* Texto Escuro */
+    --secondary-bg: #ffffff; /* Fundo Secundário */
+    --highlight: #f59e0b; /* Destaque Amarelo */
+    --border-radius: 8px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
+body.dark {
+    --primary: #e63946; /* Vermelho */
+    --primary-dark: #d62839; /* Vermelho Escuro */
+    --bg: #1d1f21; /* Fundo Escuro */
+    --text: #f1faee; /* Texto Claro */
+    --secondary-bg: #2a2d34; /* Fundo Secundário Escuro */
+    --highlight: #f1faee; /* Destaque Claro */
+}
+
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: var(--transition);
+}
+
+/* Componentes Reutilizáveis */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    display: inline-block;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.section-title:hover::after {
+    transform: scaleX(1);
+}
+
+.btn-download, .btn {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.btn-download:hover, .btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: var(--secondary-bg);
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(30deg);
+}
+
+/* Estilos do menu hambúrguer */
+.menu-toggle {
+    display: none; /* Escondido por padrão, será exibido em telas menores */
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background: none;
+    z-index: 101;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeInLeft 1s;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text);
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: fadeInRight 1s;
+    z-index: 1;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.hero-image img:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* Sobre */
+.sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.sobre-content {
+    max-width: 800px;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Minhas Habilidades */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Estilo do bloco de habilidades */
+.skill-category {
+    background: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.skill-category h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+/* Espaçamento nas letras das porcentagens */
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    height: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+/* Projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.project-card {
+    background: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: var(--spacing-sm);
+}
+
+.project-info h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde o menu por padrão em telas menores */
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-sm);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--secondary-bg);
+        padding: var(--spacing-sm) 0;
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra o menu quando a classe 'active' está presente */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra o botão do menu hambúrguer em telas menores */
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+
+/* Animações */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.footer {
+    padding: 20px 0;
+    background-color: var(--primary);
+    color: white; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    text-align: right;
+}
+
+.footer-links {
+    display: flex; 
+    gap: 20px;
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link {
+    text-decoration: none; 
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--highlight);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-dark);
+}
+
+.additional-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: var(--spacing-sm); /* Adicionado um espaçamento superior */
+}
+
+.additional-buttons .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    background-color: var(--primary);
+    color: white;
+    transition: var(--transition);
+}
+
+.additional-buttons .btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.additional-buttons .btn i {
+    font-size: 24px;
+    color: white;
+}
